@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -ex
-START_COMMAND="/android-studio/bin/studio.sh"
+START_COMMAND="/home/kasm-user/android-studio/bin/studio.sh"
 PGREP="android-studio"
 MAXIMIZE="true"
 DEFAULT_ARGS=""
