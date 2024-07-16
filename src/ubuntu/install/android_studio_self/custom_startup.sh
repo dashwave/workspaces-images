@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -ex
-START_COMMAND="sudo -E /android-studio/bin/studio.sh"
+START_COMMAND="/android-studio/bin/studio.sh"
 PGREP="android-studio"
 MAXIMIZE="true"
 DEFAULT_ARGS=""
@@ -53,7 +53,7 @@ kasm_startup() {
                 /usr/bin/filter_ready
                 /usr/bin/desktop_ready
                 set +e
-                $START_COMMAND $ARGS $URL
+                sudo -E $START_COMMAND $ARGS $URL
                 set -e
             fi
             sleep 1
