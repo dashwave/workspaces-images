@@ -53,7 +53,7 @@ kasm_startup() {
                 /usr/bin/filter_ready
                 /usr/bin/desktop_ready
                 set +e
-                sudo -E $START_COMMAND $ARGS $URL
+                sudo -E $START_COMMAND
                 set -e
             fi
             sleep 1

@@ -1,0 +1,101 @@
+[
+    {
+        "identifier": {
+            "id": "dart-code.dart-code",
+            "uuid": "f57f68ea-9ee8-42b5-9a97-041d3e4278c4"
+        },
+        "version": "3.88.0",
+        "location": {
+            "$mid": 1,
+            "path": "/root/extensions/dart-code.dart-code-3.88.0-universal",
+            "scheme": "file"
+        },
+        "relativeLocation": "dart-code.dart-code-3.88.0-universal",
+        "metadata": {
+            "id": "f57f68ea-9ee8-42b5-9a97-041d3e4278c4",
+            "publisherId": "a606ecbb-a8fb-4c35-b29a-5e8842d82af2",
+            "publisherDisplayName": "Dart-Code",
+            "targetPlatform": "universal",
+            "updated": false,
+            "isPreReleaseVersion": false,
+            "hasPreReleaseVersion": false,
+            "installedTimestamp": 1714732836775,
+            "pinned": false
+        }
+    },
+    {
+        "identifier": {
+            "id": "dart-code.flutter",
+            "uuid": "f6c3ec04-6057-4d9c-b997-69cba07a6158"
+        },
+        "version": "3.88.0",
+        "location": {
+            "$mid": 1,
+            "path": "/root/extensions/dart-code.flutter-3.88.0-universal",
+            "scheme": "file"
+        },
+        "relativeLocation": "dart-code.flutter-3.88.0-universal",
+        "metadata": {
+            "id": "f6c3ec04-6057-4d9c-b997-69cba07a6158",
+            "publisherId": "a606ecbb-a8fb-4c35-b29a-5e8842d82af2",
+            "publisherDisplayName": "Dart-Code",
+            "targetPlatform": "universal",
+            "updated": false,
+            "isPreReleaseVersion": false,
+            "hasPreReleaseVersion": false,
+            "installedTimestamp": 1714732845425,
+            "pinned": false
+        }
+    },
+    {
+        "identifier": {
+            "id": "vscjava.vscode-gradle",
+            "uuid": "a226f06e-9b5e-493b-b92a-553d3572f969"
+        },
+        "version": "3.13.2024011802",
+        "location": {
+            "$mid": 1,
+            "path": "/root/extensions/vscjava.vscode-gradle-3.13.2024011802-universal",
+            "scheme": "file"
+        },
+        "relativeLocation": "vscjava.vscode-gradle-3.13.2024011802-universal",
+        "metadata": {
+            "id": "a226f06e-9b5e-493b-b92a-553d3572f969",
+            "publisherId": "bae08b87-578e-41ec-ab1c-0b036e7add88",
+            "publisherDisplayName": "vscjava",
+            "targetPlatform": "universal",
+            "updated": false,
+            "isPreReleaseVersion": true,
+            "hasPreReleaseVersion": true,
+            "installedTimestamp": 1714732852110,
+            "pinned": false,
+            "preRelease": true
+        }
+    },
+    {
+        "identifier": {
+            "id": "redhat.java",
+            "uuid": "198a707e-28af-4e84-8610-6e2f628dd12d"
+        },
+        "version": "1.30.0",
+        "location": {
+            "$mid": 1,
+            "fsPath": "/root/extensions/redhat.java-1.30.0-linux-x64",
+            "external": "file:///root/extensions/redhat.java-1.30.0-linux-x64",
+            "path": "/root/extensions/redhat.java-1.30.0-linux-x64",
+            "scheme": "file"
+        },
+        "relativeLocation": "redhat.java-1.30.0-linux-x64",
+        "metadata": {
+            "id": "198a707e-28af-4e84-8610-6e2f628dd12d",
+            "publisherId": "eed56242-9699-4317-8bc7-e9f4b9bdd3ff",
+            "publisherDisplayName": "redhat",
+            "targetPlatform": "linux-x64",
+            "updated": false,
+            "isPreReleaseVersion": false,
+            "hasPreReleaseVersion": false,
+            "installedTimestamp": 1714732856263,
+            "pinned": false
+        }
+    }
+]

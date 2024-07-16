@@ -1,0 +1,71 @@
+[2024-02-20T18:47:57.714Z] info  code-server 4.21.0 84ca27278b68150e22d25ec9183a4835239b6e44
+[2024-02-20T18:47:57.715Z] info  Using user-data-dir /config/data
+[2024-02-20T18:47:57.732Z] info  Using config file /config/.config/code-server/config.yaml
+[2024-02-20T18:47:57.732Z] info  HTTP server listening on http://0.0.0.0:8443/
+[2024-02-20T18:47:57.732Z] info    - Authentication is disabled
+[2024-02-20T18:47:57.732Z] info    - Not serving HTTPS
+[2024-02-20T18:47:57.732Z] info  Session server listening on /config/data/code-server-ipc.sock
+[2024-02-20T18:53:21.447Z] info  code-server 4.21.0 84ca27278b68150e22d25ec9183a4835239b6e44
+[2024-02-20T18:53:21.449Z] info  Using user-data-dir /config/data
+[2024-02-20T18:53:21.464Z] info  Using config file /config/.config/code-server/config.yaml
+[2024-02-20T18:53:21.464Z] info  HTTP server listening on http://0.0.0.0:8443/
+[2024-02-20T18:53:21.464Z] info    - Authentication is disabled
+[2024-02-20T18:53:21.464Z] info    - Not serving HTTPS
+[2024-02-20T18:53:21.464Z] info  Session server listening on /config/data/code-server-ipc.sock
+[2024-02-20T19:11:08.435Z] info  code-server 4.21.0 84ca27278b68150e22d25ec9183a4835239b6e44
+[2024-02-20T19:11:08.436Z] info  Using user-data-dir /config/data
+[2024-02-20T19:11:08.455Z] info  Using config file /config/.config/code-server/config.yaml
+[2024-02-20T19:11:08.455Z] info  HTTP server listening on http://0.0.0.0:8443/
+[2024-02-20T19:11:08.455Z] info    - Authentication is disabled
+[2024-02-20T19:11:08.455Z] info    - Not serving HTTPS
+[2024-02-20T19:11:08.455Z] info  Session server listening on /config/data/code-server-ipc.sock
+[19:11:38] 
+
+
+
+
+[19:11:38] Extension host agent started.
+[19:11:38] Started initializing default profile extensions in extensions installation folder. file:///root/extensions
+[19:11:38] Completed initializing default profile extensions in extensions installation folder. file:///root/extensions
+[19:11:39] [171.76.85.230][30a02a33][ManagementConnection] New connection established.
+[19:11:40] [171.76.85.230][5ec7beff][ManagementConnection] New connection established.
+[19:11:40] [171.76.85.230][7f7fca4f][ExtensionHostConnection] New connection established.
+[19:11:40] [171.76.85.230][7f7fca4f][ExtensionHostConnection] <851> Launched Extension Host Process.
+[19:11:41] [171.76.85.230][06f88537][ExtensionHostConnection] New connection established.
+[19:11:41] [171.76.85.230][06f88537][ExtensionHostConnection] <874> Launched Extension Host Process.
+[19:11:44] [171.76.85.230][9b7939a2][ManagementConnection] New connection established.
+[19:11:45] [171.76.85.230][5c4451ef][ExtensionHostConnection] New connection established.
+[19:11:45] [171.76.85.230][5c4451ef][ExtensionHostConnection] <1007> Launched Extension Host Process.
+[19:13:23] [171.76.85.230][30a02a33][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[19:13:23] [171.76.85.230][7f7fca4f][ExtensionHostConnection] <851> Extension Host Process exited with code: 0, signal: null.
+[19:13:26] [171.76.85.230][aad93fa8][ManagementConnection] New connection established.
+[19:13:27] [171.76.85.230][3e1b9c78][ExtensionHostConnection] New connection established.
+[19:13:27] [171.76.85.230][3e1b9c78][ExtensionHostConnection] <2506> Launched Extension Host Process.
+[19:16:35] [171.76.85.230][aad93fa8][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[19:16:36] [171.76.85.230][3e1b9c78][ExtensionHostConnection] <2506> Extension Host Process exited with code: 0, signal: null.
+[19:16:36] [171.76.85.230][5ec7beff][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[19:16:37] [171.76.85.230][06f88537][ExtensionHostConnection] <874> Extension Host Process exited with code: 0, signal: null.
+[19:32:02] [171.76.85.230][5c4451ef][ExtensionHostConnection] The client has reconnected.
+[19:32:02] [171.76.85.230][9b7939a2][ManagementConnection] The client has reconnected.
+[19:32:06] [171.76.85.230][84d814a9][ManagementConnection] New connection established.
+[19:32:06] [171.76.85.230][86b4379b][ExtensionHostConnection] New connection established.
+[19:32:07] [171.76.85.230][86b4379b][ExtensionHostConnection] <9566> Launched Extension Host Process.
+[19:34:33] [171.76.85.230][36c780d4][ManagementConnection] New connection established.
+[19:34:33] [171.76.85.230][ef681e33][ExtensionHostConnection] New connection established.
+[19:34:33] [171.76.85.230][ef681e33][ExtensionHostConnection] <10454> Launched Extension Host Process.
+[19:35:41] [171.76.85.230][36c780d4][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[19:35:41] [171.76.85.230][ef681e33][ExtensionHostConnection] <10454> Extension Host Process exited with code: 0, signal: null.
+[19:36:30] [171.76.85.230][86b4379b][ExtensionHostConnection] The client has reconnected.
+[19:36:30] [171.76.85.230][84d814a9][ManagementConnection] The client has reconnected.
+[19:36:30] [171.76.85.230][9b7939a2][ManagementConnection] The client has reconnected.
+[19:36:30] [171.76.85.230][5c4451ef][ExtensionHostConnection] The client has reconnected.
+[19:36:33] [171.76.85.230][2c87bb95][ManagementConnection] New connection established.
+[19:36:34] [171.76.85.230][70557b46][ExtensionHostConnection] New connection established.
+[19:36:34] [171.76.85.230][70557b46][ExtensionHostConnection] <11374> Launched Extension Host Process.
+[19:41:31] [171.76.85.230][86b4379b][ExtensionHostConnection] <9566> Extension Host Process exited with code: 0, signal: null.
+[19:44:28] [171.76.85.230][2c87bb95][ManagementConnection] The client has reconnected.
+[19:44:29] [171.76.85.230][70557b46][ExtensionHostConnection] The client has reconnected.
+[19:46:15] [171.76.85.230][2c87bb95][ManagementConnection] The client has reconnected.
+[19:46:48] [171.76.85.230][70557b46][ExtensionHostConnection] The client has reconnected.
+[19:47:25] [171.76.85.230][5c4451ef][ExtensionHostConnection] The client has reconnected.
+[19:47:28] [171.76.85.230][9b7939a2][ManagementConnection] The client has reconnected.

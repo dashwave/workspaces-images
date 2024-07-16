@@ -1,0 +1,8 @@
+{
+    "dashwave.pluginEnv": "",
+    "dashwave.pluginMode": "workspace",
+    "workbench.colorTheme": "Visual Studio Dark",
+    "redhat.telemetry.enabled": true,
+    "security.workspace.trust.startupPrompt": "never",
+    
+}
