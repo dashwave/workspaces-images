@@ -36,8 +36,6 @@ RUN dpkg --add-architecture i386 && \
 
 
 # Install Android-Studio
-# COPY provisioning/ndkTests.sh /usr/local/bin/ndkTests.sh
-# COPY provisioning/51-android.rules /etc/udev/rules.d/51-android.rules
 
 RUN wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2023.1.1.27/android-studio-2023.1.1.27-linux.tar.gz && \
     tar -zxf android-studio-2023.1.1.27-linux.tar.gz && rm android-studio-2023.1.1.27-linux.tar.gz
@@ -111,5 +109,10 @@ ENV PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/$ANDROID_B
 # RUN sdkmanager "platforms;android-34"
 
 COPY ./src/ubuntu/install/android_studio_self/presetconfig /root
+COPY ./src/ubuntu/install/android_studio_self/plugins/plugin-3.1.0.jar /root/.local/share/Google/AndroidStudio2023.1/
+COPY ./src/ubuntu/install/android_studio_self/local.properties local.properties
+
+COPY ./src/ubuntu/install/android_studio_self/provisioning/ndkTests.sh /usr/local/bin/ndkTests.sh
+COPY ./src/ubuntu/install/android_studio_self/provisioning/51-android.rules /etc/udev/rules.d/51-android.rules
 
 CMD ["--tail-log"]

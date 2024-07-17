@@ -4,6 +4,7 @@ START_COMMAND="/home/kasm-user/android-studio/bin/studio.sh"
 PGREP="android-studio"
 MAXIMIZE="true"
 DEFAULT_ARGS=""
+MAXIMIZE_SCRIPT=$STARTUPDIR/maximize_window.sh
 
 if [[ $MAXIMIZE == 'true' ]] ; then
     DEFAULT_ARGS+=" --start-maximized"
@@ -43,7 +44,6 @@ kasm_startup() {
     fi
 
     if [ -z "$DISABLE_CUSTOM_STARTUP" ] ||  [ -n "$FORCE" ] ; then
-
         echo "Entering process startup loop"
         set +x
         while true
@@ -53,6 +53,7 @@ kasm_startup() {
                 /usr/bin/filter_ready
                 /usr/bin/desktop_ready
                 set +e
+                bash ${MAXIMIZE_SCRIPT} &
                 sudo -E $START_COMMAND
                 set -e
             fi
