@@ -22,7 +22,6 @@
     "ignore.essential-highlighting.mode": "true",
     "input.method.disabler.muted": "true",
     "installed.kotlin.plugin.version": "231-1.9.22-release-704-AS9392.1.2311.11255304",
-    "last_opened_file_path": "/config/workspace/code",
     "migrated.non.roamable.values.from.general.settings": "true",
     "previousColorScheme": "_@user_Dark",
     "registry.to.advanced.settings.migration.build": "AI-231.9392.1.2311.11255304",
@@ -30,7 +29,6 @@
   },
   "keyToStringList": {
     "file.chooser.recent.files": [
-      "/config/workspace/code"
     ],
     "fileTypeDetectors": [
       "com.intellij.ide.scratch.ScratchFileServiceImpl$Detector",

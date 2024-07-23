@@ -1,0 +1,11 @@
+network:
+  protocol: http
+  interface: 0.0.0.0
+  ssl:
+    pem_certificate: ${HOME}/.vnc/self.pem
+    pem_key: ${HOME}/.vnc/self.pem
+    require_ssl: false
+  udp:
+    public_ip: 127.0.0.1
+user_session:
+  idle_timeout: never

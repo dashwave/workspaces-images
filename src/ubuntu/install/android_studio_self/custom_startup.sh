@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 set -ex
-START_COMMAND="/home/kasm-user/android-studio/bin/studio.sh"
+START_COMMAND="/home/kasm-user/android-studio/bin/studio.sh /config/workspace/code"
 PGREP="android-studio"
-MAXIMIZE="true"
+export MAXIMIZE="true"
+export export MAXIMIZE_NAME="code"
 DEFAULT_ARGS=""
 MAXIMIZE_SCRIPT=$STARTUPDIR/maximize_window.sh
+VSCODE_SCRIPT=$STARTUPDIR/vscode_startup.sh
 
 if [[ $MAXIMIZE == 'true' ]] ; then
     DEFAULT_ARGS+=" --start-maximized"
@@ -27,6 +29,8 @@ shift
 for arg; do
     echo "arg! $arg"
 done
+
+echo workign
 
 FORCE=$2
 
@@ -53,7 +57,7 @@ kasm_startup() {
                 /usr/bin/filter_ready
                 /usr/bin/desktop_ready
                 set +e
-                bash ${MAXIMIZE_SCRIPT} &
+                bash ${VSCODE_SCRIPT} &
                 sudo -E $START_COMMAND
                 set -e
             fi

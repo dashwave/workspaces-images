@@ -1,12 +1,10 @@
 ARG BASE_TAG="develop"
-ARG BASE_IMAGE="core-ubuntu-focal"
+ARG BASE_IMAGE="core-ubuntu-jammy"
 FROM kasmweb/$BASE_IMAGE:$BASE_TAG
 USER root
 
-ENV HOME /home/kasm-default-profile
 ENV STARTUPDIR /dockerstartup
 ENV INST_SCRIPTS $STARTUPDIR/install
-WORKDIR $HOME
 
 ######### Customize Container Here ###########
 
@@ -33,12 +31,48 @@ RUN dpkg --add-architecture i386 && \
         && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# Install VSC
 
+RUN \
+echo "**** install runtime dependencies ****" && \
+apt-get update && \
+apt-get install -y \
+  git \
+  jq \
+  libatomic1 \
+  nano \
+  sudo \
+  socat \
+  net-tools \
+  netcat \
+  cmake \
+  ninja-build \
+  clang \
+  pkg-config \
+  libgtk-3-dev && \
+  echo "**** install code-server ****" && \
+  if [ -z ${CODE_RELEASE+x} ]; then \
+    CODE_RELEASE=$(curl -sX GET https://api.github.com/repos/coder/code-server/releases/latest \
+      | awk '/tag_name/{print $4;exit}' FS='[""]' | sed 's|^v||'); \
+  fi && \
+  mkdir -p /app/code-server && \
+  curl -o \
+    /tmp/code-server.tar.gz -L \
+    "https://github.com/coder/code-server/releases/download/v${CODE_RELEASE}/code-server-${CODE_RELEASE}-linux-amd64.tar.gz" && \
+  tar xf /tmp/code-server.tar.gz -C \
+    /app/code-server --strip-components=1 && \
+  echo "**** clean up ****" && \
+  apt-get clean && \
+  rm -rf \
+    /config/* \
+    /tmp/* \
+    /var/lib/apt/lists/* \
+    /var/tmp/*
 
 # Install Android-Studio
 
-RUN wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2023.1.1.27/android-studio-2023.1.1.27-linux.tar.gz && \
-    tar -zxf android-studio-2023.1.1.27-linux.tar.gz && rm android-studio-2023.1.1.27-linux.tar.gz
+RUN wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2024.1.1.11/android-studio-2024.1.1.11-linux.tar.gz && \
+    tar -zxf android-studio-2024.1.1.11-linux.tar.gz && rm android-studio-2024.1.1.11-linux.tar.gz
 
 RUN ln -s /studio-data/profile/AndroidStudio$ANDROID_STUDIO_VERSION .AndroidStudio$ANDROID_STUDIO_VERSION && \
     ln -s /studio-data/Android Android && \
@@ -54,6 +88,25 @@ chmod a+x -R ${ANDROID_DOWNLOAD_PATH} && \
 chown -R root:root ${ANDROID_DOWNLOAD_PATH} && \
 mkdir -p ${ANDROID_TOOL_HOME} && \
 mv cmdline-tools ${ANDROID_TOOL_HOME}/tools
+
+RUN echo y | sdkmanager "platform-tools" && \
+    echo y | sdkmanager "build-tools;$ANDROID_BUILD_TOOLS_VERSION"
+
+RUN yes | sdkmanager --licenses
+RUN sdkmanager "platforms;android-34"
+
+COPY ./src/ubuntu/install/android_studio_self/presetconfig /root
+COPY ./src/ubuntu/install/android_studio_self/plugins/plugin-3.1.0.jar /root/.local/share/Google/AndroidStudio2024.1/
+COPY ./src/ubuntu/install/android_studio_self/plugins/dashwave-cloud-build-0.0.2.vsix /root/.local/share/dw.vsix
+
+COPY ./src/ubuntu/install/android_studio_self/config /config
+
+COPY ./src/ubuntu/install/android_studio_self/provisioning/ndkTests.sh /usr/local/bin/ndkTests.sh
+COPY ./src/ubuntu/install/android_studio_self/provisioning/51-android.rules /etc/udev/rules.d/51-android.rules
+
+
+ENV HOME /home/kasm-default-profile
+WORKDIR $HOME
 
 # Update the desktop environment to be optimized for a single application
 RUN cp $HOME/.config/xfce4/xfconf/single-application-xfce-perchannel-xml/* $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/
@@ -71,7 +124,12 @@ RUN sudo usermod -aG root kasm-user
 #ENV LAUNCH_URL  http://kasmweb.com
 
 COPY ./src/ubuntu/install/android_studio_self/custom_startup.sh $STARTUPDIR/custom_startup.sh
+COPY ./src/ubuntu/install/android_studio_self/vscode_startup.sh $STARTUPDIR/vscode_startup.sh
+COPY ./src/ubuntu/install/android_studio_self/vnc_startup.sh $STARTUPDIR/vnc_startup.sh
+COPY ./src/ubuntu/install/android_studio_self/kasmvnc.yaml /etc/kasmvnc/kasmvnc.yaml
 RUN chmod +x $STARTUPDIR/custom_startup.sh
+RUN chmod +x $STARTUPDIR/vnc_startup.sh
+COPY ./src/ubuntu/install/android_studio_self/bg.png  /usr/share/backgrounds/bg_default.png
 
 ENV KASM_RESTRICTED_FILE_CHOOSER=1
 COPY ./src/ubuntu/install/gtk/ $INST_SCRIPTS/gtk/
@@ -86,33 +144,7 @@ ENV HOME /home/kasm-user
 WORKDIR $HOME
 RUN mkdir -p $HOME && chown -R 1000:0 $HOME
 
+
 USER 1000
-
-# Post Setup
-
-# Setup Env Variables
-ENV SDK_VERSION=commandlinetools-linux-8512546_latest \
-    ANDROID_BUILD_TOOLS_VERSION=34.0.0 \
-    ANDROID_SDK_ROOT=/opt/android \
-    JAVA_HOME=/home/kasm-user/android-studio/jbr \
-    ANDROID_DOWNLOAD_PATH=/root \
-    ANDROID_HOME=/opt/android \
-    ANDROID_TOOL_HOME=/opt/android/cmdline-tools
-
-ENV PATH=$PATH:${ANDROID_TOOL_HOME}/tools:${ANDROID_TOOL_HOME}/tools/bin
-ENV PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/$ANDROID_BUILD_TOOLS_VERSION
-
-# RUN echo y | sdkmanager "platform-tools" && \
-#     echo y | sdkmanager "build-tools;$ANDROID_BUILD_TOOLS_VERSION"
-
-# RUN yes | sdkmanager --licenses
-# RUN sdkmanager "platforms;android-34"
-
-COPY ./src/ubuntu/install/android_studio_self/presetconfig /root
-COPY ./src/ubuntu/install/android_studio_self/plugins/plugin-3.1.0.jar /root/.local/share/Google/AndroidStudio2023.1/
-COPY ./src/ubuntu/install/android_studio_self/local.properties local.properties
-
-COPY ./src/ubuntu/install/android_studio_self/provisioning/ndkTests.sh /usr/local/bin/ndkTests.sh
-COPY ./src/ubuntu/install/android_studio_self/provisioning/51-android.rules /etc/udev/rules.d/51-android.rules
 
 CMD ["--tail-log"]
